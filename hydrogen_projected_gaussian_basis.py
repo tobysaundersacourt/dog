@@ -511,10 +511,14 @@ def run_hydrogen_projected_gaussians(
     )
 
     # ============================================================
-    # Select Gaussian closest to box center
+    # Select a Gaussian on the outskirts
+    # ============================================================
+    #
+    # Choose the basis function whose center is farthest from the
+    # middle of the box.
     # ============================================================
 
-    center_basis_idx = np.argmin(
+    center_basis_idx = np.argmax(
         center_x**2 + center_y**2
     )
 
@@ -631,7 +635,7 @@ def run_hydrogen_projected_gaussians(
 
     ax.set_title(
         "Selected Gaussian After Projection Against Hydrogen Orbitals\n"
-        f"Original center = ({center_basis_x:.4f}, {center_basis_y:.4f})"
+        f"Outskirts center = ({center_basis_x:.4f}, {center_basis_y:.4f})"
     )
     ax.set_xlabel("x")
     ax.set_ylabel("y")
@@ -658,10 +662,10 @@ def run_hydrogen_projected_gaussians(
         center_basis_y,
         s=180,
         marker="*",
-        label="Selected center",
+        label="Selected outskirts center",
     )
 
-    plt.title("Radial Gaussian Function Centers")
+    plt.title("Radial Gaussian Function Centers — Outskirts Function Selected")
     plt.xlabel("x")
     plt.ylabel("y")
     plt.axis("equal")
