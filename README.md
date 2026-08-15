@@ -1,1 +1,1 @@
-# dog
+# DOG - Diagonalization Over Gaussians
