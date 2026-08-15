@@ -18,3 +18,5 @@ random_centers_basis.py is over randomly-arranged function centers
 
 hydrogen_projected_gaussian_basis.py projects onto the orthogonal subspace to the Hydrogen orbitals up to the principal quantum number n then applies the same construction.
 Note that there is weird behavior near the origin. This shows the need for PAW, which I'll be including next.
+
+I'd like to try diagonalization over other Radial Basis Functions.
