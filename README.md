@@ -1,6 +1,6 @@
 # DOG - Diagonalization Over Gaussians
 
-Produces nearly complete, orthogonal, diagonal bases by diagonalizing the X operator over a set of Gaussians defined by a width and a (possibly unstructured) distribution of function centers.
+Produces nearly complete, orthogonal, diagonal bases by diagonalizing the position operator over a set of Gaussians defined by a width and a (possibly unstructured) distribution of function centers.
 Because function centers now are up to us to choose, we can choose them according to our application. For example, if we're restricting our attention to a subspace, perhaps we could sample function centers using the local density of the projected-onto subspace.
 A good metric for tuning widths and function centers might be the error in representing polynomials in the basis. The normal equation may be used to get the absolute minimum squared-error.
 
