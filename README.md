@@ -6,7 +6,7 @@ dog.py is 1D
 
 dog2.py is 2D
 
-hexagonal_zigzag_basis.py is over hexagonally-arranged function centers
+hexagonal_basis.py is over hexagonally-arranged function centers
 
 random_centers_basis.py is over randomly-arranged function centers
 
