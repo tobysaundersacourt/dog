@@ -4,6 +4,10 @@ Produces nearly complete, orthogonal, diagonal bases by diagonalizing the positi
 Because function centers now are up to us to choose, we can choose them according to our application. For example, if we're restricting our attention to a subspace, perhaps we could sample function centers using the local density of the projected-onto subspace.
 A good metric for tuning widths and function centers might be the error in representing polynomials in the basis. The normal equation may be used to get the absolute minimum squared-error.
 
+! I'm currently reading into PAW and ECP for smoothing out the interacting electron subspace.
+
+The code is made with Codex, and it shouldn't be used for production applications but mere demonstration.
+
 dog.py is 1D
 
 dog2.py is 2D
