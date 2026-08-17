@@ -4,6 +4,8 @@ Produces nearly complete, orthogonal, diagonal bases by diagonalizing the positi
 Because function centers now are up to us to choose, we can choose them according to our application. 
 A good metric for tuning widths and function centers might be the error in representing polynomials in the basis. Ritz-Galerkin or the normal equation may be used for this purpose.
 
+Wait--I just realized this code doesn't work for arbitrary function center distributions because the representation position operator given some function centers doesn't necessarily vanish.
+
 ! I'm currently reading into PAW and ECP for smoothing out the interacting electron subspace.
 
 The code is made with Codex, and it shouldn't be used for production applications but mere demonstration.
