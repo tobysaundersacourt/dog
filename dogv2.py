@@ -16,6 +16,11 @@ x_max = 122.0
 
 w = 0.5
 
+# Optional comparison curve: stretch each diagonalized function about its
+# eigenvalue without moving its center.
+show_stretched_diagonalized = True
+diagonalized_stretch_factor = 3.0
+
 # ============================================================
 # Spatial grid
 # ============================================================
@@ -145,6 +150,22 @@ for i in range(eigenvectors.shape[1]):
         v *= -1
         f_contracted *= -1
 
+    # A horizontal stretch by s about lambda is f(lambda + (x - lambda) / s).
+    # Evaluate the Gaussian expansion directly at the transformed coordinates.
+    if show_stretched_diagonalized:
+        if diagonalized_stretch_factor <= 0.0:
+            raise ValueError("diagonalized_stretch_factor must be positive")
+
+        x_unstretched = eigenvalues[i] + (
+            x - eigenvalues[i]
+        ) / diagonalized_stretch_factor
+        G_unstretched = np.exp(
+            -(
+                (x_unstretched[:, None] - centers[None, :]) ** 2
+            ) / w**2
+        )
+        f_contracted_stretched = G_unstretched @ v
+
     # Gaussian centered at corresponding basis center
     gaussian_i = G[:, i]
 
@@ -190,6 +211,19 @@ for i in range(eigenvectors.shape[1]):
         label=rf"Contracted eigenfunction {i}",
         color="navy",
     )
+
+    if show_stretched_diagonalized:
+        ax_functions.plot(
+            x,
+            f_contracted_stretched,
+            label=(
+                rf"Diagonalized function stretched $\times"
+                rf"{diagonalized_stretch_factor:g}$"
+            ),
+            color="deepskyblue",
+            linestyle="--",
+            linewidth=1.8,
+        )
 
     ax_functions.plot(
         x,
